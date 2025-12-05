@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Team Dashboard — Final Project</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #eef1f5;
+        color: #222;
+    }
+
+    /* HEADER */
+    .header {
+        background: linear-gradient(135deg, #0d1117, #1f2937, #111827);
+        padding: 50px 20px;
+        text-align: center;
+        color: white;
+        font-size: 42px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    .subtitle {
+        text-align: center;
+        font-size: 22px;
+        color: #333;
+        margin-top: 18px;
+        font-weight: 500;
+        margin-bottom: 40px;
+    }
+
+    /* NAV BUTTONS */
+    .nav-container {
+        display: flex;
+        justify-content: center;
+        background: #ffffff;
+        padding: 15px;
+        gap: 15px;
+        border-bottom: 1px solid #ddd;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-btn {
+        padding: 12px 22px;
+        font-size: 15px;
+        border: none;
+        background: #1f2937;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.25s;
+        font-weight: 600;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    }
+
+    .nav-btn:hover {
+        background: #374151;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+    }
+
+    /* SECTIONS */
+    .page-section {
+        display: none;
+        padding: 40px;
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .active {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* HOME PAGE */
+    .home-container {
+        text-align: center;
+        max-width: 900px;
+        margin: auto;
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        margin-bottom: 50px;
+    }
+
+    .home-img {
+        width: 70%;
+        display: block;
+        margin: 30px auto;
+        border-radius: 20px;
+        box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+    }
+
+    /* MEMBER SECTIONS */
+    h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: 800;
+        color: #1f2937;
+    }
+
+    /* FIXED 2-COLUMN LAYOUT */
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* ← ALWAYS 2 per row */
+        gap: 35px;
+        padding: 20px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    @media(max-width: 900px) {
+        .gallery {
+            grid-template-columns: repeat(1, 1fr); /* mobile → 1 per row */
+        }
+    }
+
+    .card {
+        background: white;
+        padding: 20px;
+        border-radius: 14px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        transition: 0.25s;
+    }
+
+    .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+        width: 100%;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    .desc {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #444;
+    }
+
+</style>
+
+<script>
+function showSection(id) {
+    document.querySelectorAll(".page-section").forEach(s => s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+</script>
+
+</head>
+<body>
+
+<div class="header">Team Dashboard — EV vs Gas Cars</div>
+<div class="subtitle">Which Car Is Better for Long-Term Use? — Final Project</div>
+
+<!-- NAVIGATION BUTTONS -->
+<div class="nav-container">
+    <button class="nav-btn" onclick="showSection('home')">Home</button>
+    <button class="nav-btn" onclick="showSection('victor')">Victor</button>
+    <button class="nav-btn" onclick="showSection('denis')">Denis</button>
+    <button class="nav-btn" onclick="showSection('dias')">Dias</button>
+    <button class="nav-btn" onclick="showSection('ilnur')">Ilnur</button>
+    <button class="nav-btn" onclick="showSection('sanzhar')">Sanzhar</button>
+    <button class="nav-btn" onclick="showSection('conclusion')">Conclusion</button>
+
+</div>
+
+<!-- HOME PAGE -->
+<div id="home" class="page-section active">
+    <div class="home-container">
+        <h2>Welcome to Our Final Project Dashboard</h2>
+        <p style="font-size: 18px; color: #333;">
+            Our main research question:<br><br>
+            <b style="font-size: 20px;">“Which type of car is better for long-term use — Electric Vehicles or Gas Cars?”</b><br><br>
+            Each team member contributed graphs and analysis to explore this question from different angles.
+        </p>
+
+        <img src="img/ev_vs_gas.jpg" class="home-img" alt="EV vs Gas">
+
+        <p style="font-size: 18px; color: #555;">
+            Use the navigation buttons above to explore each member’s work.
+        </p>
+    </div>
+</div>
+
+<!-- VICTOR -->
+<div id="victor" class="page-section">
+    <h2>Victor's Work</h2>
+    <div class="gallery">
+        <div class="card">
+            <img src="img/vg1.png">
+            <p class="desc">
+                This bar chart compares the average CO₂ emissions produced by different fuel types. It illustrates that traditional gasoline and diesel engines generate significantly higher emissions than hybrid and electric-based powertrains. The visualization highlights which fuel categories are the most environmentally impactful.
+            </p>
+        </div>
+        <div class="card">
+            <img src="img/vg2.png">
+            <p class="desc">
+                This line graph shows how estimated federal incentives increase as electric vehicle range increases. Vehicles with higher driving range receive substantially larger incentives, emphasizing government support for long-range EV technology and encouraging manufacturers to improve battery performance.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- DENIS -->
+<div id="denis" class="page-section">
+    <h2>Denis's Work</h2>
+    <div class="gallery">
+        <div class="card">
+            <img src="img/denis1.png">
+            <p class="desc">
+                This bar chart compares the average purchase price of gas cars and electric vehicles, showing that EVs tend to cost slightly more upfront despite long-term savings on fuel and maintenance.
+            </p>
+        </div>
+        <div class="card">
+            <img src="img/denis2.png">
+            <p class="desc">
+                This scatter plot shows the relationship between horsepower and price for gas cars, revealing that more powerful engines generally come with higher prices, especially among premium brands.
+            </p>
+        </div>
+        <div class="card">
+            <img src="img/denis3.png">
+            <p class="desc">
+                This histogram displays the distribution of electric vehicle ranges, illustrating how most EVs fall within a mid-range distance per charge, while only a few models achieve extremely high range levels.
+            </p>
+        </div>
+        <div class="card">
+            <img src="img/denis4.png">
+            <p class="desc">
+                This bar chart compares EV brands by average driving range, showing which manufacturers produce longer-range vehicles and demonstrating Tesla’s strong lead in range performance.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- DIAS -->
+<div id="dias" class="page-section">
+    <h2>Dias's Work</h2>
+    <div class="gallery">
+        <div class="card">
+            <img src="img/dias1.png">
+            <p class="desc">
+                This graph compares the total cost of ownership between electric vehicles and internal combustion engine (ICE) cars over ten years. While EVs start with higher initial costs, their long-term expenses grow more slowly, revealing potential financial benefits in extended ownership.
+            </p>
+        </div>
+        <div class="card">
+            <img src="img/dias2.png">
+            <p class="desc">
+                This scatter plot analyzes the relationship between vehicle price and electric range. Higher-priced EVs generally offer longer ranges, showing how manufacturers position premium models with advanced battery capabilities.
+            </p>
+        </div>
+        <div class="card">
+            <img src="img/dias3.png">
+            <p class="desc">
+                This visualization compares the price distribution of gas and electric cars. Gas cars tend to cluster at lower price ranges, whereas electric cars show a more concentrated grouping at mid-to-high price levels, reflecting evolving market positioning and technology costs.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- ILNUR -->
+<div id="ilnur" class="page-section">
+    <h2>Ilnur's Work</h2>
+    <div class="gallery">
+        <div class="card">
+            <img src="img/ilnur1.png">
+            <p class="desc">
+                This graph shows how higher horsepower in gas cars is strongly associated with higher top speed.
+                Most everyday models cluster in the mid-power, mid-speed range, while only a few expensive sports cars reach extreme horsepower and speed.
+            </p>
+        </div>
+        <div class="card">
+            <img src="img/ilnur2.png">
+            <p class="desc">
+                This plot illustrates that as horsepower increases, CO₂ emissions also rise. More powerful gas engines usually burn more fuel, which makes high-performance cars less sustainable for long-term everyday use.
+            </p>
+        </div>
+        <div class="card">
+            <img src="img/ilnur3.png">
+            <p class="desc">
+                This bar chart compares the average price of gas cars across different brands. Luxury and supercar brands like Lamborghini, Ferrari, and Aston Martin sit at the top of the price range, while mass-market brands remain far more affordable.
+            </p>
+        </div>
+        <div class="card">
+            <img src="img/ilnur4.png">
+            <p class="desc">
+                This grouped bar chart contrasts the average prices of gas and electric models within the same brand. In many cases EVs are priced higher than their gas counterparts, highlighting that choosing electric often means a larger upfront investment in exchange for lower running costs and emissions.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- SANZHAR -->
+<div id="sanzhar" class="page-section">
+    <h2>Sanzhar's Work</h2>
+    <div class="gallery">
+        <div class="card">
+            <img src="img/sanzhar1.png">
+            <p class="desc">
+                This line chart shows the rapid growth of electric vehicle adoption over time. Early years have very low counts, but starting around 2015, EV numbers begin to rise significantly. The sharp increase after 2020 highlights accelerating consumer interest and expanding EV availability in the market.
+            </p>
+        </div>
+        <div class="card">
+            <img src="img/sanzhar2.png">
+            <p class="desc">
+                This boxplot compares electric vehicle range across the top 10 states with the highest EV presence. Texas shows the widest range variation, while states like Illinois and Tennessee display minimal variation. The chart highlights how EV range availability differs by region, reflecting local policies, charging infrastructure, and consumer adoption patterns.
+            </p>
+        </div>
+    </div>
+</div>
+<!-- CONCLUSION SECTION -->
+<div id="conclusion" class="page-section">
+    <h2>Final Conclusion</h2>
+
+    <div class="home-container" style="max-width:1000px;">
+
+        <img src="img/conclusion.jpg" class="home-img" style="width:60%; border-radius:18px;">
+
+        <p style="font-size:18px; color:#333; margin-top:25px;">
+            After analyzing all team visualizations, the long-term comparison between Electric Vehicles (EVs)
+            and Gas Cars becomes clear. EVs generally provide lower long-term ownership costs thanks to reduced
+            fuel spending, lower maintenance requirements, and government incentives. Although gas cars remain
+            cheaper at purchase, they accumulate significantly higher expenses over time and produce more CO₂ emissions.
+            Therefore, based on economic, technological, and environmental factors, <b>Electric Vehicles are
+            the better long-term choice</b>.
+        </p>
+
+    </div>
+</div>
+
+</body>
+</html>
